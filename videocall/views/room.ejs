@@ -1,0 +1,16 @@
+<%- include("_header") -%>
+
+<script>
+const ROOM_ID = "<%= roomId %>"
+</script>
+<script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+<script src="/socket.io/socket.io.js" defer></script>
+<script src="script.js" defer></script>
+
+
+	<h2 style="color:white; background-color:red; text-align:center;"><%= roomId %></h2>		
+	<div id="video-grid"></div>
+	<P id="user"> user here </P> 
+
+
+<%- include("_footer") -%>

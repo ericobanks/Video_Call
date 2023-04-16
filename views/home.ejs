@@ -1,0 +1,45 @@
+<div class="container-fluid">
+	<div class="alert alert-success" role="alert">
+		<% "Room has been created...!!" %>
+	</div>
+	<h2 style="color:white; background-color:red;">ONLINE MEETING SYSTEM</h2>
+	<div id="login"> 
+			<ul class="nav nav-tabs" id="myTab" role="tablist" style="position:static; height:auto;">
+				<li class="nav-item active">
+					<a href="#create" aria-controls="create" role="tab" data-toggle="tab"><b>Create</b></a>
+				</li>
+				<li class="nav-item">
+					<a href="#join" aria-controls="join" role="tab" data-toggle="tab"><b>Join</b></a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="create">
+					<form action="/create" method="POST">
+						<div class="form-group">
+							<input type="text" class="form-control" id="room" name="room" placeholder="Enter meeting name" required>
+						 </div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="userId" name="userId" placeholder="Enter your name" required>
+						 </div>
+						<button type="submit" name="create" class="btn btn-success btn-block">Create</button>			  
+					</form>
+				</div>
+				
+				<div role="tabpanel" class="tab-pane" id="join">
+					<form action="/join" method="POST">
+						<div class="form-group">
+							  <select class="form-control" id="room" name="room" required>
+							  <% Object.keys(rooms).forEach(room => {%>
+							  <option value="<%= room %>"><%= room %></option>
+							<% }) %>
+							</select>
+						 </div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="userId" name="userId" placeholder="Enter your name" required>
+						 </div>
+						<button type="submit" name="join" class="btn btn-success btn-block">Join</button>			  
+					</form>
+				</div>	
+			</div>
+	</div>		
+</div>
